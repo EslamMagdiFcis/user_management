@@ -1,0 +1,22 @@
+{% extends 'track_user/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center text-capitalize"> Sign up</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{form | crispy}}
+                    <button type="submit" class="btn btn-primary">
+                        Sign up
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

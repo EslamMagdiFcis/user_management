@@ -1,0 +1,20 @@
+{% extends 'track_user/base.html' %}
+
+{% load user_agents %}
+
+{% block title %} {{user.username}} Profile {% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center">Profile</h1>
+                <p>User Name: <span class="text-capitalize">{{user.username}}</span></p>
+                <p>Email: {{user.email}}</p>
+                <p>Password: {{user.password}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

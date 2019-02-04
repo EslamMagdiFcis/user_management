@@ -1,0 +1,17 @@
+{% extends 'track_user/base.html' %}
+
+{% block title %} Log in {% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h3>File name: {{user_file.file.name}}</h3>
+                <p>File size: {{user_file.file.size}} in bytes</p>
+                <p>File url: {{user_file.file.url}} on server</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

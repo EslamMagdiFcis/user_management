@@ -1,0 +1,22 @@
+{% extends 'track_user/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center">Homepage</h1>
+                <p class="text-center">Welcome to my website ,
+                    {% if user.is_authenticated %}
+                    <span class="text-capitalize">
+                        {{user.username}}
+                    </span>
+                    {% else %}
+                    Visitor
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'track_user/base.html' %}
+
+{% load user_agents %}
+
+{% block title %} {{user.username}} Profile {% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-capitalize text-center">server level variables</h1>
+                {% if request|is_mobile %}
+                <p class="text-capitalize">you open site via mobile</p>
+                {% endif %}
+                {% if request|is_pc %}
+                <p class="text-capitalize">you open site via PC</p>
+                {% endif %}
+                <p class="text-capitalize">Host: {{request.get_host}}</p>
+                <p class="text-capitalize">port: {{request.get_port}}</p>
+                <p class="text-capitalize">Protocol: {{request.scheme}}</p>
+                <p class="text-capitalize">browser: {{browser.family}} {{browser.version_string}}</p>
+                <p class="text-capitalize">OS: {{os.family}} {{os.version_string}}</p>
+                <p class="text-capitalize">device: {{device.family}} {{device.version_string}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

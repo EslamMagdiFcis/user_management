@@ -1,0 +1,33 @@
+{% extends 'track_user/base.html' %}
+
+{% block title %} Log in {% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-body">
+                {% if user_files %}
+                {% for user_file in user_files %}
+                <a href="{% url 'file-details' pk=user_file.id%}" style="display:inline;">File name:
+                    {{user_file.file.name}}</a>
+
+                <form action="{% url 'delete-file' pk=user_file.id %}" style="display:inline;" method="post"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="pk" value="{{user_file.id}}">
+                    <button type="submit" class="btn btn-primary">
+                        delete
+                    </button>
+                </form>
+                <br>
+                {% endfor %}
+                {% else %}
+                <h3>There is not Files.</h3>
+                {% endif %}
+                <a href="{% url 'add-file' %}">+ Upload New File</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -35,7 +35,7 @@ Say what the step will be
 in '/user_management/' folder open cmd or terminal to run coming commands
 
 ```
-pip install > requirements.txt
+pip install -r requirements.txt
 ```
 to install required python libs
 
